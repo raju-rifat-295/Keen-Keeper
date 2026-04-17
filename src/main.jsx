@@ -5,6 +5,7 @@ import App from './App.jsx'
 import Home from './components/Home.jsx'
 import Timeline from './components/Timeline.jsx'
 import Stats from './components/Stats.jsx'
+import FriendDetails from './components/FriendDetails.jsx'
 import { createBrowserRouter, RouterProvider } from 'react-router'
 
 const router = createBrowserRouter([
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/friend/:id",
+        element: <FriendDetails />,
       },
       {
         path: "/timeline",
