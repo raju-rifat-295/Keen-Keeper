@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react'
-import { useParams, Link } from 'react-router'
+import { useParams, Link, useOutletContext } from 'react-router'
 import { Phone, MessageSquare, Video, Clock, Archive, Trash2 } from 'lucide-react'
 
 const FriendDetails = () => {
     const { id } = useParams()
+    const { addEntry, triggerToast } = useOutletContext()
     const [friend, setFriend] = useState(null)
     const [loading, setLoading] = useState(true)
 
@@ -42,6 +43,17 @@ const FriendDetails = () => {
     if (friend.status === 'overdue') statusColor = 'bg-danger text-white'
     else if (friend.status === 'almost due') statusColor = 'bg-warning text-white'
     else if (friend.status === 'on-track') statusColor = 'bg-success text-white'
+
+    const handleInteraction = (interactionType) => {
+        const newInteraction = {
+            id: Date.now(),
+            friendName: friend.name,
+            type: interactionType,
+            date: new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
+        }
+        addEntry(newInteraction)
+        triggerToast(`Logged ${interactionType} with ${friend.name}!`)
+    }
 
     return (
         <div className="p-8 max-w-5xl mx-auto mt-8 mb-16">
@@ -107,15 +119,15 @@ const FriendDetails = () => {
                     <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
                         <h3 className="font-bold text-lg text-darkGreen mb-4">Quick Check-In</h3>
                         <div className="grid grid-cols-3 gap-4">
-                            <button className="flex flex-col items-center justify-center gap-2 p-6 border border-gray-100 rounded-lg hover:bg-lightGreen text-gray-600 hover:text-darkGreen transition-colors cursor-pointer">
+                            <button onClick={() => handleInteraction('Call')} className="flex flex-col items-center justify-center gap-2 p-6 border border-gray-100 rounded-lg hover:bg-lightGreen text-gray-600 hover:text-darkGreen transition-colors cursor-pointer">
                                 <Phone size={24} />
                                 <span className="font-semibold">Call</span>
                             </button>
-                            <button className="flex flex-col items-center justify-center gap-2 p-6 border border-gray-100 rounded-lg hover:bg-lightGreen text-gray-600 hover:text-darkGreen transition-colors cursor-pointer">
+                            <button onClick={() => handleInteraction('Text')} className="flex flex-col items-center justify-center gap-2 p-6 border border-gray-100 rounded-lg hover:bg-lightGreen text-gray-600 hover:text-darkGreen transition-colors cursor-pointer">
                                 <MessageSquare size={24} />
                                 <span className="font-semibold">Text</span>
                             </button>
-                            <button className="flex flex-col items-center justify-center gap-2 p-6 border border-gray-100 rounded-lg hover:bg-lightGreen text-gray-600 hover:text-darkGreen transition-colors cursor-pointer">
+                            <button onClick={() => handleInteraction('Video')} className="flex flex-col items-center justify-center gap-2 p-6 border border-gray-100 rounded-lg hover:bg-lightGreen text-gray-600 hover:text-darkGreen transition-colors cursor-pointer">
                                 <Video size={24} />
                                 <span className="font-semibold">Video</span>
                             </button>
