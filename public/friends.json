@@ -1,0 +1,120 @@
+[
+    {
+        "id": 1,
+        "name": "David Kim",
+        "picture": "https://i.pravatar.cc/150?u=davidk",
+        "email": "david.kim@example.com",
+        "days_since_contact": 12,
+        "status": "almost due",
+        "tags": [
+            "work",
+            "mentor"
+        ],
+        "bio": "Former colleague from the design agency. Always has great career advice.",
+        "goal": 14,
+        "next_due_date": "2026-04-19"
+    },
+    {
+        "id": 2,
+        "name": "Emma Wilson",
+        "picture": "https://i.pravatar.cc/150?u=emmaw",
+        "email": "emma.wilson@example.com",
+        "days_since_contact": 45,
+        "status": "overdue",
+        "tags": [
+            "family"
+        ],
+        "bio": "Cousin who recently moved to the city. We try to catch up for coffee.",
+        "goal": 30,
+        "next_due_date": "2026-03-15"
+    },
+    {
+        "id": 3,
+        "name": "Lisa Nakamura",
+        "picture": "https://i.pravatar.cc/150?u=lisan",
+        "email": "lisa.n@example.com",
+        "days_since_contact": 5,
+        "status": "on-track",
+        "tags": [
+            "work",
+            "close friend"
+        ],
+        "bio": "Project manager from my last job. We grab lunch occasionally.",
+        "goal": 21,
+        "next_due_date": "2026-05-02"
+    },
+    {
+        "id": 4,
+        "name": "James Wright",
+        "picture": "https://i.pravatar.cc/150?u=jamesw",
+        "email": "j.wright@example.com",
+        "days_since_contact": 65,
+        "status": "overdue",
+        "tags": [
+            "hobby",
+            "travel"
+        ],
+        "bio": "Met during the backpacking trip in Thailand. Planning another trip soon.",
+        "goal": 60,
+        "next_due_date": "2026-02-10"
+    },
+    {
+        "id": 5,
+        "name": "Sarah Chen",
+        "picture": "https://i.pravatar.cc/150?u=sarahc",
+        "email": "schen88@example.com",
+        "days_since_contact": 2,
+        "status": "on-track",
+        "tags": [
+            "college",
+            "roommate"
+        ],
+        "bio": "University roommate. We share everything and talk almost every week.",
+        "goal": 7,
+        "next_due_date": "2026-04-22"
+    },
+    {
+        "id": 6,
+        "name": "Marcus Johnson",
+        "picture": "https://i.pravatar.cc/150?u=marcusj",
+        "email": "mjohnson.sports@example.com",
+        "days_since_contact": 28,
+        "status": "almost due",
+        "tags": [
+            "sports",
+            "local"
+        ],
+        "bio": "Basketball buddy from the weekend league.",
+        "goal": 30,
+        "next_due_date": "2026-04-19"
+    },
+    {
+        "id": 7,
+        "name": "Aisha Patel",
+        "picture": "https://i.pravatar.cc/150?u=aishap",
+        "email": "aisha.patel@example.com",
+        "days_since_contact": 18,
+        "status": "on-track",
+        "tags": [
+            "college",
+            "tech"
+        ],
+        "bio": "Lab partner from senior year. Now working at a tech startup.",
+        "goal": 30,
+        "next_due_date": "2026-04-29"
+    },
+    {
+        "id": 8,
+        "name": "Ryan O'Brien",
+        "picture": "https://i.pravatar.cc/150?u=ryano",
+        "email": "ryan.obrien@example.com",
+        "days_since_contact": 120,
+        "status": "overdue",
+        "tags": [
+            "childhood"
+        ],
+        "bio": "Known him since middle school. Needs a phone call soon.",
+        "goal": 90,
+        "next_due_date": "2026-01-15"
+    }
+]
