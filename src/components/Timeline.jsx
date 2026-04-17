@@ -7,9 +7,15 @@ const Timeline = () => {
 
     const [filter, setFilter] = useState('All')
 
-    let filteredEntries = timelineEntries;
-    if (filter !== 'All') {
-        filteredEntries = timelineEntries.filter(entry => entry.type === filter)
+    let filteredEntries = [];
+    if (filter === 'All') {
+        filteredEntries = timelineEntries;
+    } else {
+        for (let i = 0; i < timelineEntries.length; i++) {
+            if (timelineEntries[i].type === filter) {
+                filteredEntries.push(timelineEntries[i]);
+            }
+        }
     }
 
     const getIcon = (type) => {
@@ -30,7 +36,7 @@ const Timeline = () => {
                 <select
                     value={filter}
                     onChange={(e) => setFilter(e.target.value)}
-                    className="border border-gray-300 rounded-md px-4 py-2 text-gray-700 bg-white"
+                    className="border border-gray-300 rounded-md px-4 py-2 text-gray-700 bg-white outline-none focus:border-darkGreen"
                 >
                     <option value="All">Filter timeline...</option>
                     <option value="Call">Calls only</option>
@@ -42,23 +48,20 @@ const Timeline = () => {
             <div className="space-y-4">
                 {filteredEntries.length === 0 ? (
                     <div className="text-center p-12 bg-white rounded-xl border border-gray-100 shadow-sm text-gray-500">
-                        No interactions found. Go to a friend's page to log a check-in!
+                        No interactions found for this filter.
                     </div>
                 ) : (
                     filteredEntries.map((entry) => (
                         <div key={entry.id} className="bg-white p-4 rounded-lg shadow-sm border border-gray-100 flex items-center gap-4">
-
                             <div className="w-12 h-12 bg-lightGreen rounded-full flex items-center justify-center shrink-0">
                                 {getIcon(entry.type)}
                             </div>
-
                             <div>
                                 <h3 className="font-bold text-gray-800">
                                     {entry.type} <span className="font-normal text-gray-500">with {entry.friendName}</span>
                                 </h3>
                                 <p className="text-sm text-gray-400">{entry.date}</p>
                             </div>
-
                         </div>
                     ))
                 )}

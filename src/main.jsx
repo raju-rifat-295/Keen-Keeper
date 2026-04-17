@@ -6,6 +6,7 @@ import Home from './components/Home.jsx'
 import Timeline from './components/Timeline.jsx'
 import Stats from './components/Stats.jsx'
 import FriendDetails from './components/FriendDetails.jsx'
+import NotFound from './components/NotFound.jsx'
 import { createBrowserRouter, RouterProvider } from 'react-router'
 
 const router = createBrowserRouter([
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: "/stats",
         element: <Stats />,
+      },
+      {
+        path: "*",
+        element: <NotFound />,
       }
     ]
   },
